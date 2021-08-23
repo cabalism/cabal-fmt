@@ -1,4 +1,5 @@
 {-# LANGUAGE FlexibleContexts  #-}
+{-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE OverloadedStrings #-}
 -- |
 -- License: GPL-3.0-or-later
@@ -33,10 +34,11 @@ import CabalFmt.Comments
 import CabalFmt.Fields
 import CabalFmt.Fields.BuildDepends
 import CabalFmt.Fields.Extensions
-import CabalFmt.FreeText
+import CabalFmt.Fields.GhcOptions
 import CabalFmt.Fields.Modules
 import CabalFmt.Fields.SourceFiles
 import CabalFmt.Fields.TestedWith
+import CabalFmt.FreeText
 import CabalFmt.Monad
 import CabalFmt.Options
 import CabalFmt.Parser
@@ -141,6 +143,7 @@ fieldDescrs opts
     <> exposedModulesF
     <> otherModulesF
     <> testedWithF opts
+    <> ghcOptionsF
     <> mconcat sourceFilesF
     <> coerceFieldDescrs C.packageDescriptionFieldGrammar
     <> coerceFieldDescrs C.buildInfoFieldGrammar
