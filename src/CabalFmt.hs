@@ -143,8 +143,8 @@ fieldDescrs opts
     <> exposedModulesF
     <> otherModulesF
     <> testedWithF opts
-    <> ghcOptionsF
     <> mconcat sourceFilesF
+    <> (if optFlow opts then mempty else ghcOptionsF)
     <> coerceFieldDescrs C.packageDescriptionFieldGrammar
     <> coerceFieldDescrs C.buildInfoFieldGrammar
 
